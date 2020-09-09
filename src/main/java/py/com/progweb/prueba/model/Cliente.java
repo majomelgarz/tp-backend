@@ -12,49 +12,48 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 @Entity
-@Table(name="cliente")
+@Table(name = "cliente")
 public class Cliente {
-    
+
     @Id
-    @Column(name="id")
-    @Basic(optional=false)
-    @GeneratedValue(generator="clienteSec", strategy=GenerationType.SEQUENCE)
-    @SequenceGenerator(name="clienteSec", sequenceName = "cliente_sec", allocationSize = 0)
+    @Column(name = "id")
+    @Basic(optional = false)
+    @GeneratedValue(generator = "clienteSec", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "clienteSec", sequenceName = "cliente_sec", allocationSize = 0)
     private Integer id;
 
-    @Column(name="nombre", length = 50)
-    @Basic(optional=false)
+    @Column(name = "nombre", length = 50)
+    @Basic(optional = false)
     private String nombre;
 
-    @Column(name="apellido", length = 50)
-    @Basic(optional=false)
+    @Column(name = "apellido", length = 50)
+    @Basic(optional = false)
     private String apellido;
 
-    @Column(name="numero_documento")
-    @Basic(optional=false)
+    @Column(name = "numero_documento")
+    @Basic(optional = false)
     private Integer numeroDocumento;
 
-    @Column(name="tipo_documento", length = 50)
-    @Basic(optional=false)
+    @Column(name = "tipo_documento", length = 50)
+    @Basic(optional = false)
     private String tipoDocumento;
 
-    @Column(name="nacionalidad", length = 50)
+    @Column(name = "nacionalidad", length = 50)
     private String nacionalidad;
 
-    @Column(name="email", length = 50)
+    @Column(name = "email", length = 50)
     private String email;
 
-    @Column(name="telefono", length = 50)
+    @Column(name = "telefono", length = 50)
     private String telefono;
 
-    @Column(name="fecha_nacimiento")
+    @Column(name = "fecha_nacimiento")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaNacimiento;
-    
+
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
 //    @JsonBackReference
 //    private List <BolsaPuntos> bolsas;
-
     public Integer getId() {
         return id;
     }
@@ -126,7 +125,7 @@ public class Cliente {
     public void setFecha_nacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-    
+
 //    public List<BolsaPuntos> getBolsas() {
 //        return bolsas;
 //    }
@@ -134,5 +133,4 @@ public class Cliente {
 //    public void setBolsas(List<BolsaPuntos> bolsas) {
 //        this.bolsas = bolsas;
 //    }
-   
 }

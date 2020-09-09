@@ -16,50 +16,50 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 @Entity
-@Table(name="bolsa_puntos")
+@Table(name = "bolsa_puntos")
 public class BolsaPuntos {
+
     @Id
-    @Column(name="id")
-    @Basic(optional=false)
-    @GeneratedValue(generator="bolsaPuntosSec", strategy=GenerationType.SEQUENCE)
-    @SequenceGenerator(name="bolsaPuntosSec", sequenceName = "bolsa_puntos_sec", allocationSize = 0)
+    @Column(name = "id")
+    @Basic(optional = false)
+    @GeneratedValue(generator = "bolsaPuntosSec", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "bolsaPuntosSec", sequenceName = "bolsa_puntos_sec", allocationSize = 0)
     private Integer id;
-    
-    @JoinColumn(name="id_cliente", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.EAGER, optional= false)
+
+    @JoinColumn(name = "id_cliente", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
 //    @JsonManagedReference
     private Cliente cliente;
-    
-    @Column(name="fecha_asignacion")
+
+    @Column(name = "fecha_asignacion")
     @Temporal(javax.persistence.TemporalType.DATE)
-    @Basic(optional=false)
+    @Basic(optional = false)
     private Date fechaAsignacion;
-    
-    @Column(name="fecha_caducidad")
+
+    @Column(name = "fecha_caducidad")
     @Temporal(javax.persistence.TemporalType.DATE)
-    @Basic(optional=false)
+    @Basic(optional = false)
     private Date fechaCaducidad;
-    
-    @Column(name="puntos_utilizados")
-    @Basic(optional=false)
+
+    @Column(name = "puntos_utilizados")
+    @Basic(optional = false)
     private Integer puntosAsignados;
-    
-    @Column(name="puntos_asignados")
-    @Basic(optional=false)
+
+    @Column(name = "puntos_asignados")
+    @Basic(optional = false)
     private Integer puntosUtilizados;
-    
-    @Column(name="puntos_saldo")
-    @Basic(optional=false)
+
+    @Column(name = "puntos_saldo")
+    @Basic(optional = false)
     private Integer puntosSaldo;
-    
-    @Column(name="monto_operacion")
-    @Basic(optional=false)
+
+    @Column(name = "monto_operacion")
+    @Basic(optional = false)
     private BigDecimal montoOperacion;
-    
+
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bolsa")
 //    @JsonBackReference
 //    private List<UsoPuntosDetalle> usoPuntos;
-
     public Integer getId() {
         return id;
     }
@@ -131,5 +131,4 @@ public class BolsaPuntos {
 //    public void setUsoPuntos(List<UsoPuntosDetalle> usoPuntos) {
 //        this.usoPuntos = usoPuntos;
 //    }
-    
 }

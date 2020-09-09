@@ -13,25 +13,26 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="uso_puntos_detalle")
+@Table(name = "uso_puntos_detalle")
 public class UsoPuntosDetalle {
+
     @Id
-    @Basic(optional=false)
-    @GeneratedValue(generator="usoPuntosDetalleSec", strategy=GenerationType.SEQUENCE)
-    @SequenceGenerator(name="usoPuntosDetalleSec", sequenceName = "uso_puntos_detalle_sec", allocationSize = 0)
+    @Basic(optional = false)
+    @GeneratedValue(generator = "usoPuntosDetalleSec", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "usoPuntosDetalleSec", sequenceName = "uso_puntos_detalle_sec", allocationSize = 0)
     private Integer id;
-    
-    @JoinColumn(name="id_cabecera", referencedColumnName = "id")
+
+    @JoinColumn(name = "id_cabecera", referencedColumnName = "id")
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private UsoPuntosCabecera cabecera;
-    
-    @JoinColumn(name="id_bolsa_puntos", referencedColumnName = "id")
+
+    @JoinColumn(name = "id_bolsa_puntos", referencedColumnName = "id")
     @ManyToOne(fetch = FetchType.EAGER)
 //    @JsonManagedReference
     private BolsaPuntos bolsa;
-    
-    @Column(name="puntos_utilizados")
-    @Basic(optional=false)
+
+    @Column(name = "puntos_utilizados")
+    @Basic(optional = false)
     private Integer puntosUtilizados;
 
     public Integer getId() {
@@ -65,5 +66,5 @@ public class UsoPuntosDetalle {
     public void setPuntosUtilizados(Integer puntosUtilizados) {
         this.puntosUtilizados = puntosUtilizados;
     }
-    
+
 }

@@ -10,22 +10,22 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="concepto_puntos")
+@Table(name = "concepto_puntos")
 public class ConceptoPuntos {
-    
+
     @Id
-    @Column(name="id")
-    @Basic(optional=false)
-    @GeneratedValue(generator="conceptoSec", strategy=GenerationType.SEQUENCE)
-    @SequenceGenerator(name="conceptoSec", sequenceName = "concepto_puntos_sec", allocationSize = 0)
+    @Column(name = "id")
+    @Basic(optional = false)
+    @GeneratedValue(generator = "conceptoSec", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "conceptoSec", sequenceName = "concepto_puntos_sec", allocationSize = 0)
     private Integer id;
-    
-    @Column(name="descripcion")
-    @Basic(optional=false)
+
+    @Column(name = "descripcion")
+    @Basic(optional = false)
     private String descripcion;
-    
-    @Column(name="puntos_requeridos")
-    @Basic(optional=false)
+
+    @Column(name = "puntos_requeridos")
+    @Basic(optional = false)
     private Integer puntosRequeridos;
 
     public Integer getId() {
@@ -51,5 +51,5 @@ public class ConceptoPuntos {
     public void setPuntosRequeridos(Integer puntosRequeridos) {
         this.puntosRequeridos = puntosRequeridos;
     }
-    
+
 }

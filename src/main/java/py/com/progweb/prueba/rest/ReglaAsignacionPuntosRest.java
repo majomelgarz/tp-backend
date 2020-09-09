@@ -14,20 +14,21 @@ import py.com.progweb.prueba.model.ReglaAsignacionPuntos;
 @Consumes("application/json")
 @Produces("application/json")
 public class ReglaAsignacionPuntosRest {
+
     @Inject
-	private ReglaAsignacionPuntosDAO reglaAsignacionPuntosDAO;
-	
-	@GET
-	@Path("/")
-	public Response listar() {
-		return Response.ok(reglaAsignacionPuntosDAO.listar()).build();
-	}
-	
-	@POST
-	@Path("/")
-	public Response agregar(ReglaAsignacionPuntos entity) {
-		this.reglaAsignacionPuntosDAO.agregar(entity);
-		return Response.ok().build();
-	}
-    
+    private ReglaAsignacionPuntosDAO reglaAsignacionPuntosDAO;
+
+    @GET
+    @Path("/")
+    public Response listar() {
+        return Response.ok(reglaAsignacionPuntosDAO.listar()).build();
+    }
+
+    @POST
+    @Path("/")
+    public Response agregar(ReglaAsignacionPuntos entity) {
+        this.reglaAsignacionPuntosDAO.agregar(entity);
+        return Response.ok().build();
+    }
+
 }

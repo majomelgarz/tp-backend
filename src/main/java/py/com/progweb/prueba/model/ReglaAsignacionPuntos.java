@@ -11,26 +11,26 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="regla_asignacion_puntos")
+@Table(name = "regla_asignacion_puntos")
 public class ReglaAsignacionPuntos {
-    
+
     @Id
-    @Column(name="id")
-    @Basic(optional=false)
-    @GeneratedValue(generator="reglaAsignacionPuntosSec", strategy=GenerationType.SEQUENCE)
-    @SequenceGenerator(name="reglaAsignacionPuntosSec", sequenceName = "regla_asignacion_puntos_sec", allocationSize = 0)
+    @Column(name = "id")
+    @Basic(optional = false)
+    @GeneratedValue(generator = "reglaAsignacionPuntosSec", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "reglaAsignacionPuntosSec", sequenceName = "regla_asignacion_puntos_sec", allocationSize = 0)
     private Integer id;
-     
-    @Column(name="limite_inferior")
-    @Basic(optional=false)
+
+    @Column(name = "limite_inferior")
+    @Basic(optional = false)
     private BigDecimal limiteInferior;
-    
-    @Column(name="limite_superior")
-    @Basic(optional=false)
+
+    @Column(name = "limite_superior")
+    @Basic(optional = false)
     private BigDecimal limiteSuperior;
 
-    @Column(name="monto_equivalencia")
-    @Basic(optional=false)
+    @Column(name = "monto_equivalencia")
+    @Basic(optional = false)
     private BigDecimal montoEquivalencia;
 
     public Integer getId() {
@@ -64,5 +64,5 @@ public class ReglaAsignacionPuntos {
     public void setMontoEquivalencia(BigDecimal montoEquivalencia) {
         this.montoEquivalencia = montoEquivalencia;
     }
-    
+
 }

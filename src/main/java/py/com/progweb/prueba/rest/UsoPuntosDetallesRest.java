@@ -15,19 +15,20 @@ import py.com.progweb.prueba.model.UsoPuntosDetalle;
 @Consumes("application/json")
 @Produces("application/json")
 public class UsoPuntosDetallesRest {
-	@Inject
-	private UsoPuntosDetallesDAO usoPuntosDetallesDAO;
-	
-	@GET
-	@Path("/")
-	public Response listar() {
-		return Response.ok(usoPuntosDetallesDAO.listar()).build();
-	}
-	
-	@POST
-	@Path("/")
-	public Response agregar(UsoPuntosDetalle entity) {
-		this.usoPuntosDetallesDAO.agregar(entity);
-		return Response.ok().build();
-	}
+
+    @Inject
+    private UsoPuntosDetallesDAO usoPuntosDetallesDAO;
+
+    @GET
+    @Path("/")
+    public Response listar() {
+        return Response.ok(usoPuntosDetallesDAO.listar()).build();
+    }
+
+    @POST
+    @Path("/")
+    public Response agregar(UsoPuntosDetalle entity) {
+        this.usoPuntosDetallesDAO.agregar(entity);
+        return Response.ok().build();
+    }
 }

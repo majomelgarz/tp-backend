@@ -12,25 +12,26 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 @Entity
-@Table(name="vencimiento_puntos")
+@Table(name = "vencimiento_puntos")
 public class VencimientoPuntos {
+
     @Id
-    @Column(name="id")
-    @Basic(optional=false)
-    @GeneratedValue(generator="vencimientoPuntosSec", strategy=GenerationType.SEQUENCE)
-    @SequenceGenerator(name="vencimientoPuntosSec", sequenceName = "vencimiento_puntos_sec", allocationSize = 0)
+    @Column(name = "id")
+    @Basic(optional = false)
+    @GeneratedValue(generator = "vencimientoPuntosSec", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "vencimientoPuntosSec", sequenceName = "vencimiento_puntos_sec", allocationSize = 0)
     private Integer id;
-    
-    @Column(name="fecha_inicio_validez")
+
+    @Column(name = "fecha_inicio_validez")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaInicio;
-    
-    @Column(name="fecha_fin_validez")
+
+    @Column(name = "fecha_fin_validez")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaFin;
 
-    @Column(name="dias_duracion")
-    @Basic(optional=false)
+    @Column(name = "dias_duracion")
+    @Basic(optional = false)
     private Integer diasDuracion;
 
     public Integer getId() {
@@ -64,5 +65,5 @@ public class VencimientoPuntos {
     public void setDiasDuracion(Integer diasDuracion) {
         this.diasDuracion = diasDuracion;
     }
-  
+
 }

@@ -15,19 +15,20 @@ import py.com.progweb.prueba.model.VencimientoPuntos;
 @Consumes("application/json")
 @Produces("application/json")
 public class VencimientoPuntosREST {
-	@Inject
-	private VencimientoPuntosDAO vencimientoPuntosDAO;
-	
-	@GET
-	@Path("/")
-	public Response listar() {
-		return Response.ok(vencimientoPuntosDAO.listar()).build();
-	}
-	
-	@POST
-	@Path("/")
-	public Response agregar(VencimientoPuntos entity) {
-		this.vencimientoPuntosDAO.agregar(entity);
-		return Response.ok().build();
-	}
+
+    @Inject
+    private VencimientoPuntosDAO vencimientoPuntosDAO;
+
+    @GET
+    @Path("/")
+    public Response listar() {
+        return Response.ok(vencimientoPuntosDAO.listar()).build();
+    }
+
+    @POST
+    @Path("/")
+    public Response agregar(VencimientoPuntos entity) {
+        this.vencimientoPuntosDAO.agregar(entity);
+        return Response.ok().build();
+    }
 }

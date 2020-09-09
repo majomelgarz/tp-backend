@@ -15,19 +15,20 @@ import py.com.progweb.prueba.model.Cliente;
 @Consumes("application/json")
 @Produces("application/json")
 public class ClienteRest {
-	@Inject
-	private ClienteDAO clienteDAO;
-	
-	@GET
-	@Path("/")
-	public Response listar() {
-		return Response.ok(clienteDAO.listar()).build();
-	}
-	
-	@POST
-	@Path("/")
-	public Response agregar(Cliente entity) {
-		this.clienteDAO.agregar(entity);
-		return Response.ok().build();
-	}
+
+    @Inject
+    private ClienteDAO clienteDAO;
+
+    @GET
+    @Path("/")
+    public Response listar() {
+        return Response.ok(clienteDAO.listar()).build();
+    }
+
+    @POST
+    @Path("/")
+    public Response agregar(Cliente entity) {
+        this.clienteDAO.agregar(entity);
+        return Response.ok().build();
+    }
 }

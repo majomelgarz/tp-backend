@@ -14,20 +14,21 @@ import py.com.progweb.prueba.model.ConceptoPuntos;
 @Consumes("application/json")
 @Produces("application/json")
 public class ConceptoPuntosRest {
+
     @Inject
-	private ConceptoPuntosDAO ConceptoPuntosDAO;
-	
-	@GET
-	@Path("/")
-	public Response listar() {
-		return Response.ok(ConceptoPuntosDAO.listar()).build();
-	}
-	
-	@POST
-	@Path("/")
-	public Response agregar(ConceptoPuntos entity) {
-		this.ConceptoPuntosDAO.agregar(entity);
-		return Response.ok().build();
-	}
-    
+    private ConceptoPuntosDAO ConceptoPuntosDAO;
+
+    @GET
+    @Path("/")
+    public Response listar() {
+        return Response.ok(ConceptoPuntosDAO.listar()).build();
+    }
+
+    @POST
+    @Path("/")
+    public Response agregar(ConceptoPuntos entity) {
+        this.ConceptoPuntosDAO.agregar(entity);
+        return Response.ok().build();
+    }
+
 }

@@ -15,19 +15,20 @@ import py.com.progweb.prueba.model.UsoPuntosCabecera;
 @Consumes("application/json")
 @Produces("application/json")
 public class UsoPuntosCabeceraRest {
-	@Inject
-	private UsoPuntosCabeceraDAO usoPuntosCabeceraDAO;
-	
-	@GET
-	@Path("/")
-	public Response listar() {
-		return Response.ok(usoPuntosCabeceraDAO.listar()).build();
-	}
-	
-	@POST
-	@Path("/")
-	public Response agregar(UsoPuntosCabecera entity) {
-		this.usoPuntosCabeceraDAO.agregar(entity);
-		return Response.ok().build();
-	}
+
+    @Inject
+    private UsoPuntosCabeceraDAO usoPuntosCabeceraDAO;
+
+    @GET
+    @Path("/")
+    public Response listar() {
+        return Response.ok(usoPuntosCabeceraDAO.listar()).build();
+    }
+
+    @POST
+    @Path("/")
+    public Response agregar(UsoPuntosCabecera entity) {
+        this.usoPuntosCabeceraDAO.agregar(entity);
+        return Response.ok().build();
+    }
 }
