@@ -8,7 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import py.com.progweb.prueba.ejb.UsoPuntosCabeceraDAO;
+import py.com.progweb.prueba.ejb.UsoPuntosCabeceraBean;
 import py.com.progweb.prueba.model.UsoPuntosCabecera;
 
 @Path("usos/cabeceras")
@@ -17,18 +17,18 @@ import py.com.progweb.prueba.model.UsoPuntosCabecera;
 public class UsoPuntosCabeceraRest {
 
     @Inject
-    private UsoPuntosCabeceraDAO usoPuntosCabeceraDAO;
+    private UsoPuntosCabeceraBean usoPuntosCabeceraBean;
 
     @GET
     @Path("/")
     public Response listar() {
-        return Response.ok(usoPuntosCabeceraDAO.listar()).build();
+        return Response.ok(usoPuntosCabeceraBean.listar()).build();
     }
 
     @POST
     @Path("/")
     public Response agregar(UsoPuntosCabecera entity) {
-        this.usoPuntosCabeceraDAO.agregar(entity);
+        this.usoPuntosCabeceraBean.agregar(entity);
         return Response.ok().build();
     }
 }

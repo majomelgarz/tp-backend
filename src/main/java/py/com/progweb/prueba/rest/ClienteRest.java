@@ -8,7 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import py.com.progweb.prueba.ejb.ClienteDAO;
+import py.com.progweb.prueba.ejb.ClienteBean;
 import py.com.progweb.prueba.model.Cliente;
 
 @Path("clientes")
@@ -17,18 +17,18 @@ import py.com.progweb.prueba.model.Cliente;
 public class ClienteRest {
 
     @Inject
-    private ClienteDAO clienteDAO;
+    private ClienteBean clienteBean;
 
     @GET
     @Path("/")
     public Response listar() {
-        return Response.ok(clienteDAO.listar()).build();
+        return Response.ok(clienteBean.listar()).build();
     }
 
     @POST
     @Path("/")
     public Response agregar(Cliente entity) {
-        this.clienteDAO.agregar(entity);
+        this.clienteBean.agregar(entity);
         return Response.ok().build();
     }
 }

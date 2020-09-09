@@ -8,12 +8,16 @@ import javax.persistence.Query;
 import py.com.progweb.prueba.model.BolsaPuntos;
 
 @Stateless
-public class BolsaPuntosDAO {
+public class BolsaPuntosBean {
 
     @PersistenceContext(unitName = "puntosPU")
     private EntityManager em;
 
-    public void agregar(BolsaPuntos entity) {
+    public void agregar(BolsaPuntos entity) throws Exception {
+        if (entity== null){
+            throw new Exception();
+        }
+        
         this.em.persist(entity);
     }
 

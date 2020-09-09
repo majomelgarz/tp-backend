@@ -8,27 +8,26 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import py.com.progweb.prueba.ejb.BolsaPuntosDAO;
+import py.com.progweb.prueba.ejb.BolsaPuntosBean;
 import py.com.progweb.prueba.model.BolsaPuntos;
 
 @Path("/bolsas")
 public class BolsaPuntosRest {
 
     @Inject
-    private BolsaPuntosDAO bolsaPuntosDAO;
+    private BolsaPuntosBean bolsaPuntosBean;
 
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response listar() {
-        return Response.ok(bolsaPuntosDAO.listar()).build();
+        return Response.ok(bolsaPuntosBean.listar()).build();
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response agregar(BolsaPuntos entity) {
-        this.bolsaPuntosDAO.agregar(entity);
+    public Response agregar(BolsaPuntos entity) throws Exception {
+        this.bolsaPuntosBean.agregar(entity);
         return Response.ok().build();
     }
 }

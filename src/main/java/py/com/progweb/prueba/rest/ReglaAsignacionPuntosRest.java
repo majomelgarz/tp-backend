@@ -7,7 +7,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-import py.com.progweb.prueba.ejb.ReglaAsignacionPuntosDAO;
+import py.com.progweb.prueba.ejb.ReglaAsignacionPuntosBean;
 import py.com.progweb.prueba.model.ReglaAsignacionPuntos;
 
 @Path("reglas-asignaciones")
@@ -16,18 +16,18 @@ import py.com.progweb.prueba.model.ReglaAsignacionPuntos;
 public class ReglaAsignacionPuntosRest {
 
     @Inject
-    private ReglaAsignacionPuntosDAO reglaAsignacionPuntosDAO;
+    private ReglaAsignacionPuntosBean reglaAsignacionPuntosBean;
 
     @GET
     @Path("/")
     public Response listar() {
-        return Response.ok(reglaAsignacionPuntosDAO.listar()).build();
+        return Response.ok(reglaAsignacionPuntosBean.listar()).build();
     }
 
     @POST
     @Path("/")
     public Response agregar(ReglaAsignacionPuntos entity) {
-        this.reglaAsignacionPuntosDAO.agregar(entity);
+        this.reglaAsignacionPuntosBean.agregar(entity);
         return Response.ok().build();
     }
 

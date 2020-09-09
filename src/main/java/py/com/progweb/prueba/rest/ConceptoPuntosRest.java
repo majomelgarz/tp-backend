@@ -7,7 +7,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-import py.com.progweb.prueba.ejb.ConceptoPuntosDAO;
+import py.com.progweb.prueba.ejb.ConceptoPuntosBean;
 import py.com.progweb.prueba.model.ConceptoPuntos;
 
 @Path("conceptos")
@@ -16,18 +16,18 @@ import py.com.progweb.prueba.model.ConceptoPuntos;
 public class ConceptoPuntosRest {
 
     @Inject
-    private ConceptoPuntosDAO ConceptoPuntosDAO;
+    private ConceptoPuntosBean ConceptoPuntosBean;
 
     @GET
     @Path("/")
     public Response listar() {
-        return Response.ok(ConceptoPuntosDAO.listar()).build();
+        return Response.ok(ConceptoPuntosBean.listar()).build();
     }
 
     @POST
     @Path("/")
     public Response agregar(ConceptoPuntos entity) {
-        this.ConceptoPuntosDAO.agregar(entity);
+        this.ConceptoPuntosBean.agregar(entity);
         return Response.ok().build();
     }
 

@@ -8,7 +8,7 @@ import javax.persistence.Query;
 import py.com.progweb.prueba.model.ReglaAsignacionPuntos;
 
 @Stateless
-public class ReglaAsignacionPuntosDAO {
+public class ReglaAsignacionPuntosBean {
 
     @PersistenceContext(unitName = "puntosPU")
     private EntityManager em;

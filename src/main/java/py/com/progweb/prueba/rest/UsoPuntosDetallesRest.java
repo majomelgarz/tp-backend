@@ -8,7 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import py.com.progweb.prueba.ejb.UsoPuntosDetallesDAO;
+import py.com.progweb.prueba.ejb.UsoPuntosDetallesBean;
 import py.com.progweb.prueba.model.UsoPuntosDetalle;
 
 @Path("usos/detalles")
@@ -17,18 +17,18 @@ import py.com.progweb.prueba.model.UsoPuntosDetalle;
 public class UsoPuntosDetallesRest {
 
     @Inject
-    private UsoPuntosDetallesDAO usoPuntosDetallesDAO;
+    private UsoPuntosDetallesBean usoPuntosDetallesBean;
 
     @GET
     @Path("/")
     public Response listar() {
-        return Response.ok(usoPuntosDetallesDAO.listar()).build();
+        return Response.ok(usoPuntosDetallesBean.listar()).build();
     }
 
     @POST
     @Path("/")
     public Response agregar(UsoPuntosDetalle entity) {
-        this.usoPuntosDetallesDAO.agregar(entity);
+        this.usoPuntosDetallesBean.agregar(entity);
         return Response.ok().build();
     }
 }

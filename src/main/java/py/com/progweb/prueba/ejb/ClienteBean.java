@@ -5,20 +5,20 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import py.com.progweb.prueba.model.UsoPuntosDetalle;
+import py.com.progweb.prueba.model.Cliente;
 
 @Stateless
-public class UsoPuntosDetallesDAO {
+public class ClienteBean {
 
     @PersistenceContext(unitName = "puntosPU")
     private EntityManager em;
 
-    public void agregar(UsoPuntosDetalle entity) {
+    public void agregar(Cliente entity) {
         this.em.persist(entity);
     }
 
-    public List<UsoPuntosDetalle> listar() {
-        Query q = this.em.createQuery("select p from UsoPuntosDetalle p");
-        return (List<UsoPuntosDetalle>) q.getResultList();
+    public List<Cliente> listar() {
+        Query q = this.em.createQuery("select p from Cliente p");
+        return (List<Cliente>) q.getResultList();
     }
 }
