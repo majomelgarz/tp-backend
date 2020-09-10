@@ -14,10 +14,10 @@ public class BolsaPuntosBean {
     private EntityManager em;
 
     public void agregar(BolsaPuntos entity) throws Exception {
-        if (entity== null){
+        if (entity == null) {
             throw new Exception();
         }
-        
+
         this.em.persist(entity);
     }
 
