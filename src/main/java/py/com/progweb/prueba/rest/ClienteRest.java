@@ -21,7 +21,6 @@ public class ClienteRest {
     private ClienteBean clienteBean;
 
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response listar() {
         return Response.ok(clienteBean.listar()).build();
