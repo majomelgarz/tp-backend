@@ -18,7 +18,20 @@ public class ClienteBean {
     }
 
     public List<Cliente> listar() {
-        Query q = this.em.createQuery("select p from Cliente p");
+        Query q = this.em.createNativeQuery("select p.* from cliente p");
         return (List<Cliente>) q.getResultList();
+    }
+
+    public void eliminar(Long clienteId) {
+        this.em.getTransaction().begin();
+        Cliente c = em.find(Cliente.class, clienteId);
+        this.em.remove(c);
+        this.em.getTransaction().commit();
+    }
+
+    public void actualizar(Cliente cliente) {
+        this.em.getTransaction().begin();
+        this.em.merge(cliente);
+        this.em.getTransaction().commit();
     }
 }
