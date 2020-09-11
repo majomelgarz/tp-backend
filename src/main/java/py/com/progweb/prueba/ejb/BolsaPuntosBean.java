@@ -25,4 +25,16 @@ public class BolsaPuntosBean {
         Query q = this.em.createQuery("select p from BolsaPuntos p");
         return (List<BolsaPuntos>) q.getResultList();
     }
+    
+    public void eliminar(Long bolsa_puntosId) {
+        this.em.getTransaction().begin();
+        BolsaPuntos bolsa = em.find(BolsaPuntos.class, bolsa_puntosId);
+        this.em.remove(bolsa);
+        this.em.getTransaction().commit();
+    }
+    public void actualizar(BolsaPuntos bolsa) {
+        this.em.getTransaction().begin();
+        this.em.merge(bolsa);
+        this.em.getTransaction().commit();
+    }
 }

@@ -21,4 +21,15 @@ public class UsoPuntosCabeceraBean {
         Query q = this.em.createQuery("select p from UsoPuntosCabecera p");
         return (List<UsoPuntosCabecera>) q.getResultList();
     }
+    public void eliminar(Long uso_puntos_cabeceraId) {
+        this.em.getTransaction().begin();
+        UsoPuntosCabecera uso = em.find(UsoPuntosCabecera.class, uso_puntos_cabeceraId);
+        this.em.remove(uso);
+        this.em.getTransaction().commit();
+    }
+        public void actualizar(UsoPuntosCabecera uso) {
+        this.em.getTransaction().begin();
+        this.em.merge(uso);
+        this.em.getTransaction().commit();
+    }
 }

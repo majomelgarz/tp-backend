@@ -21,4 +21,15 @@ public class VencimientoPuntosBean {
         Query q = this.em.createQuery("select p from VencimientoPuntos p");
         return (List<VencimientoPuntos>) q.getResultList();
     }
+    public void eliminar(Long vencimiento_puntosId) {
+        this.em.getTransaction().begin();
+        VencimientoPuntos venc = em.find(VencimientoPuntos.class, vencimiento_puntosId);
+        this.em.remove(venc);
+        this.em.getTransaction().commit();
+    }
+    public void actualizar(VencimientoPuntos venc) {
+        this.em.getTransaction().begin();
+        this.em.merge(venc);
+        this.em.getTransaction().commit();
+    }
 }

@@ -21,4 +21,17 @@ public class UsoPuntosDetallesBean {
         Query q = this.em.createQuery("select p from UsoPuntosDetalle p");
         return (List<UsoPuntosDetalle>) q.getResultList();
     }
+    public void eliminar(Long uso_puntos_detalleId) {
+        this.em.getTransaction().begin();
+        UsoPuntosDetalle uso = em.find(UsoPuntosDetalle.class, uso_puntos_detalleId);
+        this.em.remove(uso);
+        this.em.getTransaction().commit();
+    }
+    
+    public void actualizar(UsoPuntosDetalle uso) {
+        this.em.getTransaction().begin();
+        this.em.merge(uso);
+        this.em.getTransaction().commit();
+    }
+    
 }

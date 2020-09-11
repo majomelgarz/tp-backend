@@ -16,9 +16,19 @@ public class ConceptoPuntosBean {
     public void agregar(ConceptoPuntos entity) {
         this.em.persist(entity);
     }
-
     public List<ConceptoPuntos> listar() {
-        Query q = this.em.createQuery("select p from ConceptoPuntos p");
+        Query q = this.em.createNativeQuery("select p.* from ConceptoPuntos p");
         return (List<ConceptoPuntos>) q.getResultList();
     }
+    public void eliminar(Long Concepto_PuntosId) {
+        this.em.getTransaction().begin();
+        ConceptoPuntos cp = em.find(ConceptoPuntos.class, Concepto_PuntosId);
+        this.em.remove(cp);
+        this.em.getTransaction().commit();
+    }
+     public void actualizar(ConceptoPuntos concepto_puntos) {
+        this.em.getTransaction().begin();
+        this.em.merge(concepto_puntos);
+        this.em.getTransaction().commit();
+    }   
 }
